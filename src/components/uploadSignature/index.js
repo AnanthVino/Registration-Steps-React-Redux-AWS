@@ -39,7 +39,7 @@ const UploadSignature = (props) => {
     return (
         <div onBlur={getSignatureURL} tabIndex="0">
             {signatureURL ?  
-                <img src={signatureURL} className="p-2"/>
+                <img src={signatureURL} alt='' className="p-2"/>
             :
             <SignaturePad
                 ref={sigCanvas}
@@ -50,7 +50,6 @@ const UploadSignature = (props) => {
 }
 
 const mapStateToProps = state => {
-    console.log('signature data', state)
     return {
         data: state.data
     };

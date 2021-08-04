@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
 import { connect } from "react-redux";
-import ImageUpload from "../imageUpload/imageUpload";
-import UploadSignature from '../uploadSignature/'
+import ImageUpload from "../imageUpload";
+import UploadSignature from '../uploadSignature';
 import './step-three.css';
 let renderState;
 const StepThree = (props) => {

@@ -7,13 +7,12 @@ import { createOfficeData } from '../../store/action/create-personal-info-action
 import axios from 'axios';
 
 const StepTwo = (props) => {
-  const [Id, setID] = useState('12345')
-  const [buildingName, setBuildingName] = useState(props.office ? props.office.buildingName : '');
-  const [city, setCity] = useState(props.office ? props.office.city : '');
-  const [landlineNumber, setLandlineNumber] = useState(props.office ? props.office.landlineNumber : '');
-  const [address1, setAddress1] = useState(props.office ? props.office.address1 : '');
-  const [address2, setAddress2] = useState(props.office ? props.office.address2 : '');
-  const [boxNumber, setBoxNumber] = useState(props.office ? props.office.boxNumber : '');
+  const [buildingName] = useState(props.office ? props.office.buildingName : '');
+  const [city] = useState(props.office ? props.office.city : '');
+  const [landlineNumber] = useState(props.office ? props.office.landlineNumber : '');
+  const [address1] = useState(props.office ? props.office.address1 : '');
+  const [address2] = useState(props.office ? props.office.address2 : '');
+  const [boxNumber] = useState(props.office ? props.office.boxNumber : '');
   const [personalData, setPersonalData] = useState({})
   const [imageURL, setImageURl] = useState(null)
   const [signatureURL, setSignatureURL] = useState(null);

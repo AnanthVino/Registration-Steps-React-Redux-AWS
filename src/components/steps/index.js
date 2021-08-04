@@ -1,9 +1,9 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import StepIndicator from '../stepIndicator/step-indicator';
-import StepOne from '../stepOne/step-one';
-import StepTwo from '../stepTwo/step-two';
-import StepThree from '../stepThree/step-three';
+import StepIndicator from '../stepIndicator';
+import StepOne from '../stepOne';
+import StepTwo from '../stepTwo';
+import StepThree from '../stepThree';
 import './steps.css';
 
 const Steps = () => {

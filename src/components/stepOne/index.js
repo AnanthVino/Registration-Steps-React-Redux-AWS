@@ -8,13 +8,12 @@ import axios from 'axios';
 import './step-one.css';
 
 const StepOne = (props) => {
-  const [Id, setID] = useState('12345')
-  const [name, setName] = useState(props.personal ? props.personal.name : '');
-  const [email, setEmail] = useState(props.personal ? props.personal.email : '');
-  const [mobileNumber, setMobileNumber] = useState(props.personal ? props.personal.mobileNumber : '');
-  const [personalAddress1, setAddress1] = useState(props.personal ? props.personal.personalAddress1 : '');
-  const [personalAddress2, setAddress2] = useState(props.personal ? props.personal.personalAddress2 : '');
-  const [personalAddress3, setAddress3] = useState(props.personal ? props.personal.personalAddress3 : '');
+  const [name] = useState(props.personal ? props.personal.name : '');
+  const [email] = useState(props.personal ? props.personal.email : '');
+  const [mobileNumber] = useState(props.personal ? props.personal.mobileNumber : '');
+  const [personalAddress1] = useState(props.personal ? props.personal.personalAddress1 : '');
+  const [personalAddress2] = useState(props.personal ? props.personal.personalAddress2 : '');
+  const [personalAddress3] = useState(props.personal ? props.personal.personalAddress3 : '');
   const [officeData, setOfficeData] = useState({})
   const [imageURL, setImageURl] = useState(null)
   const [signatureURL, setSignatureURL] = useState(null);

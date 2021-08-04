@@ -1,15 +1,17 @@
 import React from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
-import Steps from './components/steps';
-import Success from './components/success';
+import loadable from '@loadable/component'
+
+const Steps = loadable(() => import('./components/steps/index.js'))
+const Success = loadable(() => import('./components/success/index.js'))
 
 const App = () => {
   return (
     <Router>
-      <Route path="/step1" exact component={Steps} title='Personal Info Page'/>
-      <Route path="/step2" component={Steps} title='Office Info Page'/>
-      <Route path="/step3" component={Steps} title='Confirmation Page' />
-      <Route path="/success" component={Success} title='Registration Success'/>
+      <Route path="/step1" exact component={Steps}/>
+      <Route path="/step2" component={Steps}/>
+      <Route path="/step3" component={Steps}/>
+      <Route path="/success" component={Success}/>
     </Router>
   );
 }

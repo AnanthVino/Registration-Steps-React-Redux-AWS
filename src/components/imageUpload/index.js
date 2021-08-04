@@ -50,7 +50,7 @@ class ImageUpload extends Component {
     return (
       <div className="sig-box d-flex justify-content-between">
         {this.state.imageURL ? 
-          <img src={this.state.imageURL} className="p-2"/>
+          <img src={this.state.imageURL} alt='' className="p-2"/>
           :
           <i className="bi bi-person" style={{fontSize: '4rem', color: '#000'}}></i>
         }

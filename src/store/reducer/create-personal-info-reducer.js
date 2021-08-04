@@ -17,7 +17,7 @@
         case "CREATESIGNATUREURL":
             state["data"]["signature"] = action.data;
             return state;
-        case "CREATESIGNATUREURL":
+        case "CREATEIMAGEURL":
             state["data"]["image"] = action.data;
             return state; 
         default:
