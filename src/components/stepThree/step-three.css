@@ -1,0 +1,14 @@
+.sig-error {
+    color: red;
+}
+
+.image-error {
+    color: red
+}
+
+.steps {
+    width: 80%;
+    background: #fff; 
+    border: 2px dotted gray;
+    border-radius: 50px;
+}

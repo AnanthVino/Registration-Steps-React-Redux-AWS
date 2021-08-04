@@ -1,0 +1,9 @@
+.error-message {
+    color: red;
+    display: block;
+    text-align: start;
+}
+
+.personal-form-label{
+    margin-left: -35px;
+}

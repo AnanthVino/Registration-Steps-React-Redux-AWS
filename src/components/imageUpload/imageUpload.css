@@ -1,0 +1,13 @@
+.upload-file input {
+    cursor: pointer;
+    display: block;
+    position: absolute;
+    outline: none; 
+    top: 0;
+    right: 0;
+}
+
+.upload-file {
+    position: relative;
+    overflow: hidden;
+}
