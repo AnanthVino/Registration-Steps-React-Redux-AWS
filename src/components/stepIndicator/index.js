@@ -1,3 +1,11 @@
+/**
+ * 
+ * Code implementation
+ * @Author Ananth Gunasekarapandiyan
+ * @Email ananth1626p@gmail.com
+ * 
+ */
+
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { connect } from "react-redux";
@@ -7,16 +15,19 @@ const StepIndicator = (props) => {
     const steps = [
         {
             path: "/step1",
-            active: 'activeLink'
+            active: 'activeLink',
+            complateStep: props.personal ? Object.keys(props.personal).length > 0 ? 'personal-page-complete': '' : ''
         },
         {
             path: "/step2",
-            active: 'activeLink'
+            active: 'activeLink',
+            complateStep: props.office ? Object.keys(props.office).length > 0 ? 'office-page-complete': '' : '' 
         },
         {
             path: "/step3",
-            active: props.office && props.personal ? Object.keys(props.personal).length > 0 &&  Object.keys(props.office).length > 0 ? 'activeLink ' : '' : 'activeLink' 
-           }
+            active: props.office && props.personal ? Object.keys(props.personal).length > 0 &&  Object.keys(props.office).length > 0 ? 'activeLink' : '' : 'activeLink',
+            complateStep: props.image && props.signature ? 'confirmation-page-complete': ''
+        }
     ]
 
     const pageTitle = () => {
@@ -65,7 +76,7 @@ const StepIndicator = (props) => {
                     return (
                         <>
                         <div className="indicator">
-                            <NavLink className={step.active} activeClassName='activeLink1' key={index} to={step.path}>{index + 1}</NavLink>
+                            <NavLink className={`${step.active} ${step.complateStep}`} activeClassName='activeLink1' key={index} to={step.path}>{index + 1}</NavLink>
                             <span className="step">{`Step ${index+1}`}</span>
                             
                         </div>
@@ -81,7 +92,9 @@ const StepIndicator = (props) => {
 const mapStateToProps = state => {
     return {
         personal: state.data.personal,
-        office: state.data.office
+        office: state.data.office,
+        image: state.data.image ? state.data.image.imageURL : '',
+        signature: state.data.signature ? state.data.signature.signatureURL : ''
     };
 };
 

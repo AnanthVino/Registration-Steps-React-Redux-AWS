@@ -1,3 +1,11 @@
+/**
+ * 
+ * Code implementation
+ * @Author Ananth Gunasekarapandiyan
+ * @Email ananth1626p@gmail.com
+ * 
+ */
+
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
@@ -19,8 +27,9 @@ class ImageUpload extends Component {
 
   async componentDidMount() {
     const response = await axios.get('https://opf6bwohpb.execute-api.us-east-1.amazonaws.com/Dev')
-    console.log('response singature', response)
-    this.setState({imageURL: response.data[0].image.imageURL})
+    if(response.data[0]){
+      this.setState({imageURL: response.data[0].image.imageURL})
+    }
   }
 
   onImageChange = async (event) => {

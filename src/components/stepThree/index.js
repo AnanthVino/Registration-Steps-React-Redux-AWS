@@ -1,3 +1,12 @@
+/**
+ * 
+ * Code implementation
+ * @Author Ananth Gunasekarapandiyan
+ * @Email ananth1626p@gmail.com
+ * 
+ */
+
+
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useHistory } from 'react-router-dom';
@@ -26,9 +35,11 @@ const StepThree = (props) => {
       renderState = setInterval(() => {
         const fetchData = async () => {
           const response = await axios.get('https://opf6bwohpb.execute-api.us-east-1.amazonaws.com/Dev')
-          setRakData(response.data[0])
-          setSignatureURL(response.data[0].signature.signatureURL)
-          setImageURl(response.data[0].image.imageURL)
+          if(response.data[0]){
+            setRakData(response.data[0])
+            setSignatureURL(response.data[0].signature.signatureURL)
+            setImageURl(response.data[0].image.imageURL)
+          }
       }
       fetchData();
       }, 300);
@@ -62,10 +73,10 @@ const StepThree = (props) => {
             </div>
             <div className="col">
               <ImageUpload />
-              <span className="image-error">{imageURL ? null : 'Upload your image'}</span>
+              <span className="image-error">{imageURL ? '' : 'Upload your image'}</span>
               <div className="sig-box mt-5">
                 <UploadSignature />
-                <span className="sig-error">{signatureURL ? null : 'Uploar your signature'}</span>
+                <span className="sig-error">{signatureURL ? '' : 'Uploar your signature'}</span>
               </div>
             </div>
           </div>
@@ -79,7 +90,6 @@ const StepThree = (props) => {
 }
 
 const mapStateToProps = state => {
-  console.log('get rak bank', state)
     return {
       data: state.data,
   };

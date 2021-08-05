@@ -1,3 +1,11 @@
+/**
+ * 
+ * Code implementation
+ * @Author Ananth Gunasekarapandiyan
+ * @Email ananth1626p@gmail.com
+ * 
+ */
+
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useForm } from "react-hook-form";
@@ -28,10 +36,11 @@ const StepOne = (props) => {
   useEffect(() => {
     const fetchData = async () => {
         const response = await axios.get('https://opf6bwohpb.execute-api.us-east-1.amazonaws.com/Dev')
-        console.log('response', response)
-        setOfficeData(response.data[0].office)
-        setSignatureURL(response.data[0].signature.signatureURL)
-        setImageURl(response.data[0].image.imageURL)
+        if(response.data[0]){
+          setOfficeData(response.data[0].office)
+          setSignatureURL(response.data[0].signature.signatureURL)
+          setImageURl(response.data[0].image.imageURL)
+        }
     }
     fetchData();
   },[])
@@ -64,43 +73,43 @@ const StepOne = (props) => {
         <div className="mb-3 row">
           <label htmlFor="name" className="col-sm-5 personal-form-label">Name</label>
           <div className="col-sm-7">
-            <input {...register("name", { required: true, minLength: 8 })} type="text" className="form-control form-text" id="name" defaultValue={name}/>
+            <input {...register("name", { required: true })} type="text" className="form-control form-text" id="name" defaultValue={name}/>
             {errors.name && <span className="error-message ml-5">This field is required</span>}
           </div>
         </div>
         <div className="mb-3 row">
           <label htmlFor="email" className="col-sm-5 personal-form-label">Email</label>
           <div className="col-sm-7">
-            <input type="text" className="form-control form-text" id="email" {...register("email", { required: true })} defaultValue={email}/>
-            {errors.emailRequired && <span className="error-message ml-5">This field is required</span>}
+            <input type="email" className="form-control form-text" id="email" {...register("email", { required: true })} defaultValue={email}/>
+            {errors.email && <span className="error-message ml-5">This field is required</span>}
             </div>
         </div>
         <div className="mb-3 row">
           <label htmlFor="number" className="col-sm-5 personal-form-label">Mobile Number</label>
           <div className="col-sm-7">
             <input type="text" className="form-control form-text" id="number" {...register("mobileNumber", { required: true })} defaultValue={mobileNumber}/>
-            {errors.numberRequired && <span className="error-message ml-5">This field is required</span>}
+            {errors.mobileNumber && <span className="error-message ml-5">This field is required</span>}
           </div>
         </div>
         <div className="mb-3 row">
           <label htmlFor="address1" className="col-sm-5 personal-form-label">Address Line 1</label>
           <div className="col-sm-7">
             <input type="text" className="form-control form-text" id="address1" {...register("personalAddress1", { required: true })} defaultValue={personalAddress1}/>
-            {errors.address1Required && <span className="error-message ml-5">This field is required</span>}
+            {errors.personalAddress1 && <span className="error-message ml-5">This field is required</span>}
           </div>
         </div>
         <div className="mb-3 row">
           <label htmlFor="address2" className="col-sm-5 personal-form-label">Address Line 2</label>
           <div className="col-sm-7">
             <input type="text" className="form-control form-text" id="address2" {...register("personalAddress2", { required: true })} defaultValue={personalAddress2}/>
-            {errors.address2Required && <span className="error-message ml-5">This field is required</span>}
+            {errors.personalAddress2 && <span className="error-message ml-5">This field is required</span>}
           </div>
         </div>
         <div className="mb-3 row">
           <label htmlFor="address3" className="col-sm-5 personal-form-label">Address Line 3</label>
           <div className="col-sm-7">
             <input type="text" className="form-control form-text" id="address3" {...register("personalAddress3", { required: true })} defaultValue={personalAddress3}/>
-            {errors.address3Required && <span className="error-message ml-5">This field is required</span>}
+            {errors.personalAddress3 && <span className="error-message ml-5">This field is required</span>}
           </div>
         </div>
       </form>

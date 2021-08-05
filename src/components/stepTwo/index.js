@@ -1,3 +1,11 @@
+/**
+ * 
+ * Code implementation
+ * @Author Ananth Gunasekarapandiyan
+ * @Email ananth1626p@gmail.com
+ * 
+ */
+
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useForm } from "react-hook-form";
@@ -30,10 +38,11 @@ const StepTwo = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       const response = await axios.get('https://opf6bwohpb.execute-api.us-east-1.amazonaws.com/Dev')
-      console.log('response personal', response)
-      setPersonalData(response.data[0].personal)
-      setSignatureURL(response.data[0].signature.signatureURL)
-      setImageURl(response.data[0].image.imageURL)
+      if(response.data[0]){
+        setPersonalData(response.data[0].personal)
+        setSignatureURL(response.data[0].signature.signatureURL)
+        setImageURl(response.data[0].image.imageURL)
+      }
     }
     fetchData();
   },[])

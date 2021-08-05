@@ -10,16 +10,16 @@
     switch (action.type) {
         case "CREATEPERSONALDETAILS":
             state["data"]["personal"] = action.data;
-            return state; 
+            return state;
         case "CREATEOFFICEDETAILS":
             state["data"]["office"] = action.data;
-            return state; 
+            return state;
         case "CREATESIGNATUREURL":
             state["data"]["signature"] = action.data;
             return state;
         case "CREATEIMAGEURL":
             state["data"]["image"] = action.data;
-            return state; 
+            return state;
         default:
             return state;
     }

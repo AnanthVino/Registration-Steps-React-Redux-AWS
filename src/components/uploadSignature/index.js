@@ -1,3 +1,11 @@
+/**
+ * 
+ * Code implementation
+ * @Author Ananth Gunasekarapandiyan
+ * @Email ananth1626p@gmail.com
+ * 
+ */
+
 import React, { useState, useRef, useEffect } from "react";
 import SignaturePad from "react-signature-canvas";
 import { connect } from "react-redux";
@@ -25,6 +33,7 @@ const UploadSignature = (props) => {
     },[])
 
     const getSignatureURL = () => {
+        if(sigCanvas.current.getTrimmedCanvas){
         let signatureData = {
             Id: '12345',
             signatureURL: sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"),
@@ -34,6 +43,7 @@ const UploadSignature = (props) => {
         }
         props.createSignatureData(signatureData);
         setSignatureURL(sigCanvas.current.getTrimmedCanvas().toDataURL("image/png"));
+        }
     }
 
     return (

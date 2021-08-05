@@ -48,6 +48,54 @@
     opacity: 0.3;
 }
 
+.stepIndicator .step-info-wizard .indicator .activeLink.personal-page-complete {
+    background: #FF0000!important;
+    color: #fff;
+    padding: 25px;
+    border: 0;
+    opacity: 1;
+}
+
+.stepIndicator .step-info-wizard .indicator .activeLink.personal-page-complete.activeLink1 {
+    background: #FF0000!important;
+    border: 3px solid green;
+    color: #fff;
+    padding: 25px;
+    opacity: unset;
+}
+
+.stepIndicator .step-info-wizard .indicator .activeLink.office-page-complete {
+    background: #FF0000!important;
+    color: #fff;
+    padding: 25px;
+    border: 0;
+    opacity: unset;
+}
+
+.stepIndicator .step-info-wizard .indicator .activeLink.office-page-complete.activeLink1 {
+    background: #FF0000!important;
+    border: 3px solid green;
+    color: #fff;
+    padding: 25px;
+    opacity: unset;
+}
+
+.stepIndicator .step-info-wizard .indicator .activeLink.confirmation-page-complete {
+    background: #FF0000!important;
+    color: #fff;
+    padding: 25px;
+    border: 0;
+    opacity: unset;
+}
+
+.stepIndicator .step-info-wizard .indicator .activeLink.confirmation-page-complete.activeLink1 {
+    background: #FF0000!important;
+    border: 3px solid green;
+    color: #fff;
+    padding: 25px;
+    opacity: unset;
+}
+
 .stepIndicator .step-info-wizard .indicator .activeLink1 {
     border: 3px solid green;
     color: #fff;
