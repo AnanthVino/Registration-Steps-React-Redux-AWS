@@ -23,7 +23,7 @@ const Success = () => {
                 text: "Your application has been submitted.",
                 icon: 'success',
                 confirmButtonColor: '#d33',
-                confirmButtonText: '<a href="/step1">OK</a>'
+                confirmButtonText: '<a href="/">OK</a>'
             })
 
             if(data) {
