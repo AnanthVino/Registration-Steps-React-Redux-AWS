@@ -14,7 +14,7 @@ const StepIndicator = (props) => {
 
     const steps = [
         {
-            path: "/step1",
+            path: "/",
             active: 'activeLink',
             complateStep: props.personal ? Object.keys(props.personal).length > 0 ? 'personal-page-complete': '' : ''
         },
@@ -32,7 +32,7 @@ const StepIndicator = (props) => {
 
     const pageTitle = () => {
         let obj = {}
-        if(window.location.pathname === '/step1'){
+        if(window.location.pathname === '/'){
             obj ={
                 pageTitle: 'Personal Info Page',
                 pageInfo: 'Personal Info'

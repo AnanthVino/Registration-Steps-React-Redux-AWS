@@ -14,7 +14,7 @@ import { connect } from "react-redux";
 import ImageUpload from "../imageUpload";
 import UploadSignature from '../uploadSignature';
 import './step-three.css';
-let renderState;
+
 const StepThree = (props) => {
     const [rakData, setRakData] = useState({})
     const [imageURL, setImageURl] = useState(null)

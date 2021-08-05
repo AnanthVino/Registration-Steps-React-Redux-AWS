@@ -6,7 +6,7 @@
  * 
  */
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import axios from 'axios';
 import Swal from 'sweetalert2';
 import './success.css';

@@ -32,7 +32,7 @@ const StepTwo = (props) => {
   } = useForm();
     
   const handleBackStep2 = () => {
-    history.push("/step1")
+    history.push("/")
   }
     
   useEffect(() => {

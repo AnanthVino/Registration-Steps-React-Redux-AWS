@@ -22,7 +22,7 @@ const Steps = () => {
       <div className="mainContainer">
         <StepIndicator />
         <div className="output">
-          <Route exact path="/step1">
+          <Route exact path="/">
             <StepOne />
           </Route>
           <Route path="/step2">
