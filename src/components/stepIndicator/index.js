@@ -71,6 +71,20 @@ const StepIndicator = (props) => {
         return getActivePage
     }
 
+    const getCompletePage = (step) => {
+        let getCompletePage = '';
+        if(step === '/' && props.personal){
+            getCompletePage = 'step-completed'
+        }
+        if(step === '/step2' && props.office){
+            getCompletePage = 'step-completed'
+        }
+        if(step === '/step2' && props.image && props.signature){
+            getCompletePage = 'step-completed'
+        }
+
+        return getCompletePage;
+    }
 
 
     return (
@@ -92,7 +106,7 @@ const StepIndicator = (props) => {
                             <span className="step">{`Step ${index+1}`}</span>
                             
                         </div>
-                        <hr className={getCurrentPage(step.path)}/>
+                        <hr className={`${getCurrentPage(step.path)} ${getCompletePage(step.path)}`}/>
                         </>
                     );
                 })}

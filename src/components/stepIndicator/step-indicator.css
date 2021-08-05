@@ -114,6 +114,12 @@ hr.active-page {
     opacity: 0.3;
 }
 
+.stepIndicator .step-info-wizard hr.step-completed{
+    background: #FF0000 !important;
+    height: 2px !important;
+    opacity: unset;
+}
+
 .step {
     margin-top: 85px;
     margin-left: 55px;
