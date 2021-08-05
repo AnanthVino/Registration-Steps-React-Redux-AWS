@@ -26,9 +26,19 @@ class ImageUpload extends Component {
   }
 
   async componentDidMount() {
-    const response = await axios.get('https://opf6bwohpb.execute-api.us-east-1.amazonaws.com/Dev')
-    if(response.data[0]){
-      this.setState({imageURL: response.data[0].image.imageURL})
+    this.interval = setInterval(this.callRakAPI, 1000)
+  }
+
+  componentWillUnmount(){
+    clearInterval(this.interval)
+  }
+
+  callRakAPI = async() => {
+    if(this.state.imageURL === null){
+      const response = await axios.get('https://opf6bwohpb.execute-api.us-east-1.amazonaws.com/Dev')
+      if(response.data[0]){
+        this.setState({imageURL: response.data[0].image.imageURL})
+      }
     }
   }
 

@@ -31,23 +31,19 @@ const StepThree = (props) => {
       }
     }
 
-    useEffect(() => {
-      renderState = setInterval(() => {
-        const fetchData = async () => {
-          const response = await axios.get('https://opf6bwohpb.execute-api.us-east-1.amazonaws.com/Dev')
-          if(response.data[0]){
-            setRakData(response.data[0])
-            setSignatureURL(response.data[0].signature.signatureURL)
-            setImageURl(response.data[0].image.imageURL)
-          }
+    const callRakAPI = async() => {
+      const response = await axios.get('https://opf6bwohpb.execute-api.us-east-1.amazonaws.com/Dev')
+      if(response.data[0]){
+        setRakData(response.data[0])
+        setSignatureURL(response.data[0].signature.signatureURL)
+        setImageURl(response.data[0].image.imageURL)
       }
-      fetchData();
-      }, 300);
-    }, []);
+    };
   
     useEffect(() => {
-      if (Object.keys(rakData).length > 0) {
-        clearInterval(renderState);
+      const interval = setInterval(callRakAPI, 1000)
+      return () => {
+        clearInterval(interval);
       }
     }, [rakData]);
     

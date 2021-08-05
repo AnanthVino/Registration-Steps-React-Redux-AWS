@@ -20,17 +20,22 @@ const UploadSignature = (props) => {
     const [personalData, setPersonalData] = useState({})
     const sigCanvas = useRef({});
 
-    useEffect(() => {
-        const fetchData = async () => {
+    const callRakAPI = async() => {
+        if(signatureURL === null){
             const response = await axios.get('https://opf6bwohpb.execute-api.us-east-1.amazonaws.com/Dev')
-            console.log('response singature', response)
             setPersonalData(response.data[0].personal)
             setOfficeData(response.data[0].office)
             setSignatureURL(response.data[0].signature.signatureURL)
             setImageURl(response.data[0].image.imageURL)
         }
-        fetchData();
-    },[])
+    };
+    
+    useEffect(() => {
+        const interval = setInterval(callRakAPI, 1000)
+        return () => {
+            clearInterval(interval);
+        }
+    }, []);
 
     const getSignatureURL = () => {
         if(sigCanvas.current.getTrimmedCanvas){
