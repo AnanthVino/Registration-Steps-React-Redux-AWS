@@ -61,6 +61,18 @@ const StepIndicator = (props) => {
         return getCurrentPage
     }
 
+    const getActivePage = (step) => {
+        let getActivePage = '';
+        if(step === window.location.pathname){
+            getActivePage = 'activeLink1'
+        }else{
+            getActivePage = ''
+        }
+        return getActivePage
+    }
+
+
+
     return (
         <div className="stepIndicator">
             <h1 className="ml-5 text-white">{pageTitle().pageTitle}</h1>
@@ -76,7 +88,7 @@ const StepIndicator = (props) => {
                     return (
                         <>
                         <div className="indicator">
-                            <NavLink className={`${step.active} ${step.complateStep}`} activeClassName='activeLink1' key={index} to={step.path}>{index + 1}</NavLink>
+                            <NavLink className={`${step.active} ${step.complateStep}`} activeClassName={getActivePage(step.path)} key={index} to={step.path}>{index + 1}</NavLink>
                             <span className="step">{`Step ${index+1}`}</span>
                             
                         </div>

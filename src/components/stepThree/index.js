@@ -32,6 +32,7 @@ const StepThree = (props) => {
     }
 
     const callRakAPI = async() => {
+      
       const response = await axios.get('https://opf6bwohpb.execute-api.us-east-1.amazonaws.com/Dev')
       if(response.data[0]){
         setRakData(response.data[0])
